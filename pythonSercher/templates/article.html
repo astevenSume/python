@@ -1,0 +1,43 @@
+{% load filter %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        .conf a {
+            display: inline-block;
+            padding: 3px 5px;
+            border: 1px solid #ddd;
+            margin: 3px 5px;
+            cursor:pointer;
+        }
+        .nowHref {
+            background: #ff0000;
+        }
+
+    </style>
+</head>
+<body>
+<h1>查询条件</h1>
+<div class="conf">
+
+    <div>
+        {% filter_all 'category' arg_dict %}
+        {% filterOne 'category' arg_dict category %}
+    </div>
+    <div>
+        {% filter_all 'article_type' arg_dict %}
+        {% filterOne 'article_type' arg_dict articleType %}
+    </div>
+</div>
+
+<h1>文章内容</h1>
+    <ul>
+        {% for row in res %}
+            <li>{{ row.id }} - {{ row.title }}</li>
+        {% endfor %}
+    </ul>
+
+</body>
+</html>
