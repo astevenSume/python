@@ -1,1 +1,1 @@
-pythonSercher python的组合搜索
+/pythonSercher python的组合搜索
